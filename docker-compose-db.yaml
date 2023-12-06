@@ -1,0 +1,16 @@
+# Use root/example as user/password credentials
+version: '3.9'
+
+services:
+
+  mySQL-db:
+    image: mysql:latest
+    restart: always
+    container_name: mySQLdb
+    environment:
+      MYSQL_DATABASE: ep4project
+      MYSQL_ROOT_PASSWORD: ep4Josema
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
